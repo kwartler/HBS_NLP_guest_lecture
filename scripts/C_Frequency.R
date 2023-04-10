@@ -1,11 +1,8 @@
 #' Title: Intro: Frequency Count 
 #' Purpose: obtain the frequent terms and visualize
 #' Author: Ted Kwartler
-#' Date: Mar 12, 2023
+#' Date: Apr 10, 2023
 #'
-
-# Set the working directory
-setwd("~/Desktop/Hult_Visualizing-Analyzing-Data-with-R/personalFiles")
 
 # Libs
 library(tm)
@@ -38,7 +35,7 @@ cleanCorpus <- function(corpus, customStopwords){
 customStopwords <- c(stopwords('english'), 'lol', 'smh', 'beer', 'amp')
 
 # Data 
-text <- read.csv('https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/sivbVector.csv')
+text <- read.csv('https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/sivbVector.csv')
  
 
 # Build a volatile corpus

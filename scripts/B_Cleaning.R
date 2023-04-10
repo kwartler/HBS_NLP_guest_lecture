@@ -1,11 +1,9 @@
 #' Title: Intro: Cleaning and Frequency Count
 #' Purpose: Learn some basic cleaning functions & term frequency
 #' Author: Ted Kwartler
-#' Date: Mar 12, 2023
+#' Date: Apr 10, 2023
 #'
 
-# Set the working directory
-setwd("~/Desktop/Hult_Visualizing-Analyzing-Data-with-R/personalFiles")
 
 # Libs
 library(tm)
@@ -39,7 +37,7 @@ cleanCorpus<-function(corpus, customStopwords){
 customStopwords <- c(stopwords('english'), 'lol', 'smh')
 
 # Data
-text <- read.csv('https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/coffeeVector.csv')
+text <- read.csv('https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/coffeeVector.csv')
 head(text$x)
 
 # Make a volatile corpus

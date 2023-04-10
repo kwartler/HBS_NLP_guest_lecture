@@ -1,11 +1,8 @@
 #' Title: Intro: Simple Wordcloud
 #' Purpose: Learn about wordclouds and make one
 #' Author: Ted Kwartler
-#' Date: Mar 12, 2023
+#' Date: Apr 10, 2023
 #' 
-
-# Set the working directory
-setwd("~/Desktop/Hult_Visualizing-Analyzing-Data-with-R/personalFiles")
 
 # Libs
 library(tm)
@@ -45,7 +42,7 @@ bigramTokens <-function(x){
   }
   
 # Data
-text <- read.csv('https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/sivbVector.csv')
+text <- read.csv('https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/sivbVector.csv')
 
 # Make a volatile corpus
 txtCorpus <- VCorpus(VectorSource(text$x))

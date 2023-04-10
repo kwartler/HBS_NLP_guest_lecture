@@ -1,11 +1,8 @@
 #' Title: Intro: Other Wordclouds
 #' Purpose: Make other types of word clouds
 #' Author: Ted Kwartler
-#' Date: Mar 12, 2023
+#' Date: Apr 10, 2023
 #'
-
-# Set the working directory
-setwd("~/Desktop/Hult_Visualizing-Analyzing-Data-with-R/personalFiles")
 
 # Libs
 library(tm)
@@ -39,9 +36,9 @@ customStopwords <- c(stopwords('english'), 'lol', 'smh',
                      'amp','sivb', 'bank', 'sequoia')
 
 # Read in multiple files as individuals
-txtFiles<-c('https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/sivbVector.csv',
-            'https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/Sequoia%20CapitalVector.csv',
-            'https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/hashtagBankCrashVector.csv') 
+txtFiles<-c('https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/sivbVector.csv',
+            'https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/Sequoia%20CapitalVector.csv',
+            'https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/hashtagBankCrashVector.csv') 
 documentTopics <- c('siliconValley','Sequoia', 'bankCrash')
 
 # Read in as a list

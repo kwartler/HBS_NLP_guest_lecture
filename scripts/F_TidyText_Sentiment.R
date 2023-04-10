@@ -1,11 +1,8 @@
 #' Title: Intro: TidyText Sentiment
 #' Purpose: Sentiment nonsense
 #' Author: Ted Kwartler
-#' Date: Mar 12, 2023
+#' Date: Apr 10, 2023
 #'
-
-# Set the working directory
-setwd("~/Desktop/Hult_Visualizing-Analyzing-Data-with-R/personalFiles")
 
 # Libs
 library(tidytext)
@@ -38,9 +35,9 @@ cleanCorpus<-function(corpus, customStopwords){
 customStopwords <- c(stopwords('english'))
 
 # Read in multiple files as individuals
-txtFiles<-c('https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/starboy.txt',
-            'https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/in_your_eyes.txt',
-            'https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/pharrell_williams_happy.txt') 
+txtFiles<-c('https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/starboy.txt',
+            'https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/in_your_eyes.txt',
+            'https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/pharrell_williams_happy.txt') 
 documentTopics <- c("starboy", "eyes", "happy") 
 
 # Read in as a list
@@ -96,11 +93,6 @@ afinnSent
 afinnSent$ValueCount <- afinnSent$value * afinnSent$count 
 afinnSent
 
-# Visualization, keep in mind these are words in alphabetical order, some analysis would use time
-ggplot(afinnSent, aes(idx, ValueCount, fill = document)) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~document, ncol = 1, scales = "free_y")
-
 # If you did have a timestamp you can easily make a timeline of sentiment using this code
 # The idx here is not temporal but this is an example if you were tracking over time instead of alpha
 plotDF <- subset(afinnSent, afinnSent$document=='eyes')
@@ -108,6 +100,7 @@ ggplot(plotDF, aes(x=idx, y=ValueCount, group=document, color=document)) +
   geom_line()
 
 # Get nrc lexicon,notice that some words can have multiple sentiments
+# You may be prompted to download this the first time running the code
 nrc <- lexicon_nrc()
 
 # Perform Inner Join
@@ -119,9 +112,6 @@ nrcSent
 
 # Drop pos/neg leaving only emotion
 nrcSent <- nrcSent[-grep('positive|negative',nrcSent$sentiment),]
-
-# Quick chk
-table(nrcSent$sentiment,nrcSent$document)
 
 # Manipulate for radarchart
 nrcSentRadar <- as.matrix(table(nrcSent$sentiment, nrcSent$document))

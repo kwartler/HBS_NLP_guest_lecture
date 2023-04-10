@@ -1,11 +1,8 @@
 #' Title: Intro: Keyword Scanning
 #' Purpose: Learn some basic string manipulation
 #' Author: Ted Kwartler
-#' Date: Mar 12, 2023
+#' Date: Apr 10, 2023
 #'
-
-# Set the working directory
-setwd("~/Desktop/Hult_Visualizing-Analyzing-Data-with-R/personalFiles")
 
 # Libs
 library(stringi)
@@ -14,7 +11,7 @@ library(stringi)
 Sys.setlocale('LC_ALL','C') #some tweets are in different languages so you may get an error
 
 # Get Data
-text <- read.csv('https://raw.githubusercontent.com/kwartler/Hult_Visualizing-Analyzing-Data-with-R/main/BAN1/C_Mar27/data/coffeeVector.csv')
+text <- read.csv('https://raw.githubusercontent.com/kwartler/HBS_NLP_guest_lecture/main/data/coffeeVector.csv')
 head(text$x)
 
 
@@ -41,9 +38,5 @@ sum(mugGlassCup) / nrow(text)
 # Count occurrences of words per tweet
 theCoffee <- stri_count(text$x, fixed="the")
 sum(theCoffee) / nrow(text)
-
-# Example data organization
-keywordScans <- data.frame(text = text$x, coffee, starbucks, mugGlassCup)
-keywordScans
 
 # End
